@@ -1,6 +1,5 @@
 ﻿using System;
 using TeoVincent.ActiveMVC.Controllers;
-using Theoretically_MVC.Views;
 
 namespace TeoVincent.ActiveMVC.Views
 {

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using TeoVincent.ActiveMVC.Views;
-using Theoretically_MVC.Views;
 
 namespace TeoVincent.ActiveMVC.Models
 {

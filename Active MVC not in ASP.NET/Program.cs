@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using TeoVincent.ActiveMVC.Controllers;
 using TeoVincent.ActiveMVC.Models;
 using TeoVincent.ActiveMVC.Views;
-using Theoretically_MVC.Views;
 
 namespace TeoVincent.ActiveMVC
 {

@@ -1,4 +1,4 @@
-﻿namespace Theoretically_MVC.Views
+﻿namespace TeoVincent.ActiveMVC.Views
 {
     partial class WinFormView
     {
