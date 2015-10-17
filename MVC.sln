@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Active MVC not in ASP.NET",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Active MVC", "Active MVC not in ASP.NET\Active MVC.csproj", "{F9E5F3AB-C803-4614-BD3A-FD385114E932}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passive MVC", "Passive MVC\Passive MVC.csproj", "{BE4C11A3-8DC0-4A2C-87C1-DDF595934B48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +19,16 @@ Global
 		{F9E5F3AB-C803-4614-BD3A-FD385114E932}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9E5F3AB-C803-4614-BD3A-FD385114E932}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9E5F3AB-C803-4614-BD3A-FD385114E932}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE4C11A3-8DC0-4A2C-87C1-DDF595934B48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE4C11A3-8DC0-4A2C-87C1-DDF595934B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE4C11A3-8DC0-4A2C-87C1-DDF595934B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE4C11A3-8DC0-4A2C-87C1-DDF595934B48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F9E5F3AB-C803-4614-BD3A-FD385114E932} = {A1F2E0BC-1915-49A5-BCDD-103D7495CFED}
+		{BE4C11A3-8DC0-4A2C-87C1-DDF595934B48} = {A1F2E0BC-1915-49A5-BCDD-103D7495CFED}
 	EndGlobalSection
 EndGlobal
