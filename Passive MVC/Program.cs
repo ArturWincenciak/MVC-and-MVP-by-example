@@ -6,6 +6,7 @@ using Passive_MVC.Views;
 
 namespace Passive_MVC
 {
+
     class Program
     {
         static void Main(string[] args)
