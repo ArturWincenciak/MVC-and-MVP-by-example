@@ -1,44 +1,75 @@
-﻿using Passive_MVC.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Passive_MVC.Models;
+using Passive_MVC.Views;
 
 namespace Passive_MVC.Controllers
 {
-    public class Controller : Observable, IController
+    public class Controller : IController, IObservable
     {
         private readonly IModel model;
+        private readonly Task overAndOverAgain;
+        private Action action;
+        private readonly List<IObserver> observers;
+        private const int INTERVAL = 50;
 
         public Controller(IModel model)
         {
             this.model = model;
+
+            observers = new List<IObserver>();
+
+            action = () => { };
+            overAndOverAgain = Task.Factory.StartNew(OverAndOverAgain);
+        }
+
+        public void Subscribe(IObserver observer)
+        {
+            observers.Add(observer);
+        }
+
+        private void Notify()
+        {
+            foreach (var view in observers)
+                view.Update(model.X, model.Y);
         }
 
         public void MoveRight()
         {
-            model.IncreaseX();
-            Notify();
+            lock (action)
+                action = model.IncreaseX;
         }
 
         public void MoveLeft()
         {
-            model.DecreaseX();
-            Notify();
+            lock (action)
+                action = model.DecreaseX;
         }
 
         public void MoveUp()
         {
-            model.DecreaseY();
-            Notify();
+            lock (action)
+                action = model.DecreaseY;
         }
 
         public void MoveDown()
         {
-            model.IncreaseY();
-            Notify();
+            lock (action)
+                action = model.IncreaseY;
         }
 
-        protected override void Notify()
+        private void OverAndOverAgain()
         {
-            foreach (var view in observers)
-                view.Update(model.X, model.Y);
+            while (true)
+            {
+                lock (action)
+                {
+                    action();
+                    Notify();
+                    overAndOverAgain.Wait(INTERVAL);
+                }
+            }
         }
     }
 }
