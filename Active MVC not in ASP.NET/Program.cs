@@ -27,6 +27,8 @@ namespace TeoVincent.ActiveMVC
 
             Task.Factory.StartNew(() => consoleView.Navigate());
             Application.Run(winFormsView);
+
+            //This is commit test by GitHub Extension for VS2015
         }
     }
 }
