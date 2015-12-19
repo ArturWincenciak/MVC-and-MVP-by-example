@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Active MVC", "Active MVC no
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passive MVC", "Passive MVC\Passive MVC.csproj", "{BE4C11A3-8DC0-4A2C-87C1-DDF595934B48}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{EF43AB64-4BCC-4E81-A4F9-04AEF0BAC195}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{2B4CF47D-A83F-4964-9726-121DC221BFD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,10 @@ Global
 		{BE4C11A3-8DC0-4A2C-87C1-DDF595934B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE4C11A3-8DC0-4A2C-87C1-DDF595934B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE4C11A3-8DC0-4A2C-87C1-DDF595934B48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B4CF47D-A83F-4964-9726-121DC221BFD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B4CF47D-A83F-4964-9726-121DC221BFD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B4CF47D-A83F-4964-9726-121DC221BFD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B4CF47D-A83F-4964-9726-121DC221BFD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,5 +38,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F9E5F3AB-C803-4614-BD3A-FD385114E932} = {A1F2E0BC-1915-49A5-BCDD-103D7495CFED}
 		{BE4C11A3-8DC0-4A2C-87C1-DDF595934B48} = {A1F2E0BC-1915-49A5-BCDD-103D7495CFED}
+		{2B4CF47D-A83F-4964-9726-121DC221BFD9} = {EF43AB64-4BCC-4E81-A4F9-04AEF0BAC195}
 	EndGlobalSection
 EndGlobal
