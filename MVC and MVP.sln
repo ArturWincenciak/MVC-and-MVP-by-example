@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Active MVC not in ASP.NET", "Active MVC not in ASP.NET", "{A1F2E0BC-1915-49A5-BCDD-103D7495CFED}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC", "MVC", "{A1F2E0BC-1915-49A5-BCDD-103D7495CFED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Active MVC", "Active MVC not in ASP.NET\Active MVC.csproj", "{F9E5F3AB-C803-4614-BD3A-FD385114E932}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Active MVC", "Active MVC\Active MVC.csproj", "{F9E5F3AB-C803-4614-BD3A-FD385114E932}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passive MVC", "Passive MVC\Passive MVC.csproj", "{BE4C11A3-8DC0-4A2C-87C1-DDF595934B48}"
 EndProject
