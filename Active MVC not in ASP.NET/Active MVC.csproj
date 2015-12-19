@@ -65,7 +65,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{2b4cf47d-a83f-4964-9726-121dc221bfd9}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

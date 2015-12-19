@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TeoVincent.ActiveMVC.Views;
+using TeoVincent.Utilities;
 
 namespace TeoVincent.ActiveMVC.Models
 {
@@ -17,23 +18,17 @@ namespace TeoVincent.ActiveMVC.Models
         private int y;
 
         private readonly List<IObserver> observers;
-        private readonly Task overAndOverAgain;
-        private Action action;
-        private const int INTERVAL = 50;
-        private readonly object lockObj;
+        private readonly IActionRunner actionRunner;
 
-        public Model(int minX, int maxX, int minY, int maxY)
+        public Model(int minX, int maxX, int minY, int maxY, IActionRunner actionRunner)
         {
             this.minX = minX;
             this.maxX = maxX;
             this.minY = minY;
             this.maxY = maxY;
+            this.actionRunner = actionRunner;
 
             observers = new List<IObserver>();
-
-            lockObj = new object();
-            action = () => { };
-            overAndOverAgain = Task.Factory.StartNew(OverAndOverAgain);
         }
 
         public void Subscribe(IObserver observer)
@@ -42,28 +37,16 @@ namespace TeoVincent.ActiveMVC.Models
         }
 
         public void IncreaseX()
-        {
-            lock (lockObj)
-                action = IncX;
-        }
+            => DoIt(IncX);
 
         public void DecreaseX()
-        {
-            lock (lockObj)
-                action = DecX;
-        }
+            => DoIt(DecX);
 
         public void IncreaseY()
-        {
-            lock (lockObj)
-                action = IncY;
-        }
+            => DoIt(IncY);
 
         public void DecreaseY()
-        {
-            lock (lockObj)
-                action = DecY;
-        }
+            => DoIt(DecY);
 
         private void IncX()
         {
@@ -71,8 +54,6 @@ namespace TeoVincent.ActiveMVC.Models
                 x = 0;
             else
                 x++;
-
-            Notify();
         }
 
         private void DecX()
@@ -81,8 +62,6 @@ namespace TeoVincent.ActiveMVC.Models
                 x = maxX - 1;
             else
                 x--;
-
-            Notify();
         }
 
         private void IncY()
@@ -91,8 +70,6 @@ namespace TeoVincent.ActiveMVC.Models
                 y = 0;
             else
                 y++;
-
-            Notify();
         }
 
         private void DecY()
@@ -101,8 +78,6 @@ namespace TeoVincent.ActiveMVC.Models
                 y = maxY - 1;
             else
                 y--;
-
-            Notify();
         }
 
         private void Notify()
@@ -111,16 +86,12 @@ namespace TeoVincent.ActiveMVC.Models
                 observer.Update(x, y);
         }
 
-        private void OverAndOverAgain()
+        private void DoIt(Action action)
         {
-            while (true)
-            {
-                lock (lockObj)
-                {
-                    action();
-                    overAndOverAgain.Wait(INTERVAL);
-                }
-            }
+            actionRunner.DoIt(() => {
+                action();
+                Notify();
+            });
         }
     }
 }

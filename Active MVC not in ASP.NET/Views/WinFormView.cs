@@ -48,7 +48,7 @@ namespace TeoVincent.ActiveMVC.Views
 
         private void PrintNew(int x, int y)
         {
-            var point = new Point(x*scale, y*scale);
+            var point = new Point(x * scale, y * scale);
             var size = new Size(scale, scale);
             var rectangle = new Rectangle(point, size);
             graphics.FillEllipse(Brushes.Black, rectangle);
