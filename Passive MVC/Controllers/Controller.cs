@@ -3,31 +3,25 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Passive_MVC.Models;
 using Passive_MVC.Views;
+using TeoVincent.Utilities;
 
 namespace Passive_MVC.Controllers
 {
     public class Controller : IController, IObservable
     {
         private readonly IModel model;
-        private readonly Task overAndOverAgain;
-        private Action action;
+        private readonly IActionRunner actionRunner;
         private readonly List<IObserver> observers;
-        private const int INTERVAL = 50;
 
-        public Controller(IModel model)
+        public Controller(IModel model, IActionRunner actionRunner)
         {
             this.model = model;
-
+            this.actionRunner = actionRunner;
             observers = new List<IObserver>();
-
-            action = () => { };
-            overAndOverAgain = Task.Factory.StartNew(OverAndOverAgain);
         }
 
         public void Subscribe(IObserver observer)
-        {
-            observers.Add(observer);
-        }
+            => observers.Add(observer);
 
         private void Notify()
         {
@@ -36,40 +30,21 @@ namespace Passive_MVC.Controllers
         }
 
         public void MoveRight()
-        {
-            lock (action)
-                action = model.IncreaseX;
-        }
+            => DoIt(model.IncreaseX);
 
         public void MoveLeft()
-        {
-            lock (action)
-                action = model.DecreaseX;
-        }
+            => DoIt(model.DecreaseX);
 
         public void MoveUp()
-        {
-            lock (action)
-                action = model.DecreaseY;
-        }
+            => DoIt(model.DecreaseY);
 
         public void MoveDown()
-        {
-            lock (action)
-                action = model.IncreaseY;
-        }
+            => DoIt(model.IncreaseY);
 
-        private void OverAndOverAgain()
-        {
-            while (true)
-            {
-                lock (action)
-                {
-                    action();
-                    Notify();
-                    overAndOverAgain.Wait(INTERVAL);
-                }
-            }
-        }
+        private void DoIt(Action action)
+            => actionRunner.DoIt(() => {
+                action();
+                Notify();
+            });
     }
 }
