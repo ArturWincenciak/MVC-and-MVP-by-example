@@ -7,11 +7,4 @@ Few examples of:
 * MVP Passive View, 
 * MVP Supervising Controller 
 
-not in ASP.NET. More info in my blog. 
-
-Feel free to read:
-
-* http://teo-vincent.blogspot.com/2015/09/active-mvc-nie-w-aspnet.html 
-* http://teo-vincent.blogspot.com/2015/10/passive-vs-active-mvc-nie-w-aspnet.html
-* http://teo-vincent.blogspot.com/2015/12/mvp-vs-mvc-cz0-przedmowa.html
-* http://teo-vincent.blogspot.com/2015/12/mvp-vs-mvc-cz2-active-mvc-vs-mvp.html
+not in ASP.NET.
